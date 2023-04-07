@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import todoApi from '../api/todoApi';
 
 function TodoList() {
-    
+
     const [todos, setTodos] = useState([]);
   
     useEffect(() => {
@@ -37,6 +37,23 @@ function TodoList() {
         console.error("Error creating todo:", error);
       }
     };
+
+    const updateTodo = async (todoId, newValue) => {
+        if (!newValue.description || /^\s*$/.test(newValue.description)) {
+          return;
+        }
+      
+        try {
+          const response = await todoApi.update(todoId, newValue);
+          const updatedTodo = response.data;
+      
+          setTodos(prevTodos =>
+            prevTodos.map(todo => (todo.id === todoId ? { ...todo, ...updatedTodo } : todo))
+          );
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
 
 }
