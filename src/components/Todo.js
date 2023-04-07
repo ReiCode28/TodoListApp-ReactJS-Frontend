@@ -46,7 +46,44 @@ const TodoForm = (props) => {
       console.error(error);
     }
 
+    // Finally, the input state variable is reset to an empty string to clear the form input field. 
     setInput('');
   };
 
-}
+  /**
+   * returns a form element that renders either an input field and "Add todo" button if it is not in edit mode, or an input field and "Update" button 
+   * if it is in edit mode. The input field is initially populated with the input state variable and the handleChange function is called when 
+   * the user types in the field to update the state variable. When the form is submitted, the handleSubmit function is called.
+   */
+  return (
+    <form className="todo-form" onSubmit={handleSubmit}>
+      {props.edit ? (
+        <>
+          <input
+            type="text"
+            placeholder="Edit your todo"
+            value={input}
+            name="text"
+            className="todo-input edit"
+            onChange={handleChange}
+          />
+          <button className="todo-button edit">Update</button>
+        </>
+      ) : (
+        <>
+          <input
+            type="text"
+            placeholder="Add a todo"
+            value={input}
+            name="text"
+            className="todo-input"
+            onChange={handleChange}
+          />
+          <button className="todo-button">Add todo</button>
+        </>
+      )}
+    </form>
+  );
+};
+
+export default TodoForm;
