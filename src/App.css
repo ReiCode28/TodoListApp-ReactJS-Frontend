@@ -7,19 +7,16 @@
 }
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(48, 16, 255, 1) 0%,
-    rgba(100, 115, 255, 1) 100%
-  );
+  background-color: #568EA6;
 }
+
 .todo-app {
   display: flex;
   flex-direction: column;
   justify-content: start;
   width: 520px;
   min-height: 600px;
-  background: #161a2b;
+  background: #305F72;
   text-align: center;
   margin: 128px auto;
   border-radius: 10px;
@@ -44,15 +41,16 @@ h1 {
 .todo-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
-  border: 2px solid #5d0cff;
+  border: none;
   outline: none;
   width: 320px;
-  background: transparent;
+  background-color: #568EA6;
   color: #fff;
 }
 
 .todo-input::placeholder {
-  color: #e2e2e2;
+  color: #fff;
+  opacity: 0.8;
 }
 
 .todo-button {
@@ -61,26 +59,25 @@ h1 {
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   outline: none;
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
-  color: #fff;
+  background-color: #F18C8E;
+  color: #001e1d;
   text-transform: capitalize;
+  transition: all 0.2s ease-in-out;
+}
+
+.todo-button:hover {
+  background-color: #F18C8E;
+  color: #fff;
 }
 
 .todo-input.edit {
-  border: 2px solid #149fff;
+  background-color: #F1D1B5;
 }
 
 .todo-button.edit {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+  background-color: #F18C8E;
   padding: 16px 22px;
+  color: #fff;
 }
 
 .todo-container {
@@ -95,55 +92,53 @@ h1 {
   align-items: center;
   margin: 4px auto;
   color: #fff;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
-  );
-
+  background-color: #F0B7A4;
   padding: 16px;
   border-radius: 5px;
   width: 90%;
 }
 
 .todo-row:nth-child(4n + 1) {
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
+  background-color: #F18C8E;
 }
 
 .todo-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
+  background-color: #f1a38c;
 }
 
 .todo-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+  background-color: #F1D1B5;
 }
 
 .icons {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  font-size: 24px;
-  cursor: pointer;
+  margin-top: 10px;
 }
 
 .delete-icon {
-  margin-right: 5px;
   color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.delete-icon:hover {
+  color: #568EA6;
+  transform: scale(1.2);
 }
 
 .edit-icon {
   color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.edit-icon:hover {
+  color: #568EA6;
+  transform: scale(1.2);
 }
 
 .todo-checkbox {
